@@ -12,9 +12,6 @@ RUN npm install
 
 # Copy the source code to the working directory
 COPY . .
-# COPY ./src ./src
-# COPY index.js ./
-# COPY process.env ./
 
 # Expose the port
 EXPOSE 3000
