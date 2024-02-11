@@ -8,6 +8,7 @@ const authRouter = require("./routes/auth-routes");
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../process.env') })
 const MONGO_URI = process.env.MONGO_URI
+const SECRET_KEY = process.env.SECRET;
 
 const app = express();
 
