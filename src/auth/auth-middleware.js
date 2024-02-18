@@ -1,10 +1,12 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../process.env')});
+/* import path from 'path';
+const envPath = path.join(__dirname, '../process.env');
+dotenv.config({ path: envPath }); */
+
 const SECRET_KEY = process.env.SECRET;
 
-module.exports = (req, res, next) => {
+export default (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     jwt.verify(token, SECRET_KEY);

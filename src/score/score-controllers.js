@@ -1,6 +1,6 @@
-const ScoreModel = require("../models/score-models");
+import ScoreModel from "./score-models.js";
 
-exports.getScores = async function (req, res) {
+export const getScores = async function (req, res) {
     try {
       const userData = await ScoreModel.find().sort({ Score: -1 });
       res.status(200).json({users: userData});
@@ -10,7 +10,7 @@ exports.getScores = async function (req, res) {
     }
 }
 
-exports.getScore = async (req, res) => {
+export const getScore = async (req, res) => {
     const userId = req.params.id;
     console.log(userId);
   
@@ -30,7 +30,7 @@ exports.getScore = async (req, res) => {
     }
 }
 
-exports.changeScore = async (req, res) => {
+export const changeScore = async (req, res) => {
     const userId = req.params.id;
     const newScore = req.body.Score;
     console.log(userId, newScore);
@@ -55,7 +55,7 @@ exports.changeScore = async (req, res) => {
     }
 }
 
-exports.newScore = async (req, res) => {
+export const newScore = async (req, res) => {
     const { Name, Score } = req.body;
   
     try {
@@ -77,7 +77,7 @@ exports.newScore = async (req, res) => {
     }
 }
 
-exports.delScore = async (req, res) => {
+export const delScore = async (req, res) => {
     const userId = req.params.id;
   
     try {
@@ -95,6 +95,7 @@ exports.delScore = async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
 
 
 

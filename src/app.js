@@ -1,12 +1,11 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 
-const scoreRouter = require("./routes/score-routes");
-const authRouter = require("./routes/auth-routes");
+import scoreRouter from "./score/score-routes.js";
+import authRouter from "./auth/auth-routes.js";
 
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../process.env') })
+
 const MONGO_URI = process.env.MONGO_URI
 
 const app = express();
@@ -49,4 +48,4 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRouter);
 app.use('/api/score', scoreRouter);
 
-module.exports = app;
+export default app;

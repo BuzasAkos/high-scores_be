@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const scoreSchema = mongoose.Schema({
   email: { type: String, required: true }
@@ -6,4 +6,4 @@ const scoreSchema = mongoose.Schema({
   collection: 'users' 
 });
 
-module.exports = mongoose.model('User', scoreSchema);
+export default mongoose.model('User', scoreSchema);

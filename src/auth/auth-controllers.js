@@ -1,13 +1,11 @@
-const jwt = require("jsonwebtoken");
-const UserModel = require("../models/auth-models");
+import jwt from "jsonwebtoken";
+import UserModel from "./auth-models.js";
 
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../process.env')});
+
 const SECRET_KEY = process.env.SECRET;
 
 
-
-exports.login = (req, res) => {
+export const login = (req, res) => {
     const { email, password } = req.body;
     console.log('login api called with', email);
     
@@ -23,7 +21,7 @@ exports.login = (req, res) => {
     });
 }
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
   const { email, password } = req.body;
   console.log('signup api called with', email);
 
@@ -47,3 +45,4 @@ exports.signup = async (req, res) => {
         res.status(500).json({ error: error });
   }
 }
+
