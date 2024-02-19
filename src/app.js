@@ -1,12 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 
 import scoreRouter from "./score/score-routes.js";
 import authRouter from "./auth/auth-routes.js";
 
+dotenv.config();
+const MONGO_URI = process.env.MONGO_URI;
 
-const MONGO_URI = process.env.MONGO_URI
 
 const app = express();
 

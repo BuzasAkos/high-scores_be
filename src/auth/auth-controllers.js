@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 import UserModel from "./auth-models.js";
+import dotenv from 'dotenv';
 
-
+dotenv.config();
 const SECRET_KEY = process.env.SECRET;
-
 
 export const login = (req, res) => {
     const { email, password } = req.body;

@@ -1,9 +1,7 @@
 import jwt from "jsonwebtoken";
+import dotenv from 'dotenv';
 
-/* import path from 'path';
-const envPath = path.join(__dirname, '../process.env');
-dotenv.config({ path: envPath }); */
-
+dotenv.config();
 const SECRET_KEY = process.env.SECRET;
 
 export default (req, res, next) => {
@@ -13,6 +11,7 @@ export default (req, res, next) => {
     console.log('token is verified :)');
     next();
   } catch (error) {
+    console.log('Auth failed', SECRET_KEY, token);
     res.status(401).json({ message: "Auth failed!" });
   }
 };
