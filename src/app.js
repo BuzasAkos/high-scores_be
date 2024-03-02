@@ -3,8 +3,9 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
-import scoreRouter from "./score/score-routes.js";
-import authRouter from "./auth/auth-routes.js";
+import scoreRouter from "./score/score.routes.js";
+import helloRouter from "./hello/hello.routes.js";
+import authRouter from "./auth/auth.routes.js";
 
 dotenv.config();
 const MONGO_URI = process.env.MONGO_URI;
@@ -48,6 +49,7 @@ app.use((req, res, next) => {
 // call API routes
 
 app.use('/api/auth', authRouter);
+app.use('/api/hello', helloRouter);
 app.use('/api/score', scoreRouter);
 
 export default app;

@@ -1,6 +1,6 @@
 import express from 'express';
-import { getScores, getScore, changeScore, newScore, delScore } from "./score-controllers.js";
-import checkAuth from "../auth/auth-middleware.js";
+import { getScores, getScore, changeScore, newScore, delScore } from "./score.controller.js";
+import checkAuth from "../auth/auth.middleware.js";
 
 const router = express.Router();
 
